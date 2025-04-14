@@ -1,0 +1,44 @@
+@use '../global' as g;
+
+.background_img {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background-size:cover;
+}
+
+.background_img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+/* 画面幅が1000px以下の場合に別の画像を表示 */
+@media screen and (min-width: 1000px) {
+  .background_img img {
+      content: url("../images/img_top.jpg");
+  }
+}
+
+
+	
+
+
+
+
+
+
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}

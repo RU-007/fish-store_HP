@@ -1,0 +1,5 @@
+@use '../global' as g;
+
+h1 {
+  color: g.$mainColor;
+}
