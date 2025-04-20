@@ -1,0 +1,16 @@
+@use '../global' as g;
+
+.hero-container {
+  width: 100%;
+
+  .hero-wrapper {
+    width: 100%;
+    img.hero-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+  }
+}
+
