@@ -1,3 +1,2 @@
 import "../sass/style.scss";
-
-console.log('Webpack is working!');
+import "./hamburger.js";

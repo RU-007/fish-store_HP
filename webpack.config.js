@@ -6,6 +6,8 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 
 module.exports = {
+  mode: "development", // 開発モード
+  // mode: "production", // 本番モード
   entry: {
     index: "./src/js/index.js",   //エントリポイント
   },
@@ -24,14 +26,16 @@ module.exports = {
     port: 8080, // ポート番号（任意）
     watchFiles: ['src/**/*'], // `src` フォルダ内の変更を監視
   },
+  optimization: {
+    minimize: false,  // 圧縮を無効化
+  },
+
   module: {
     rules: [
       // sassファイルの読み込みとコンパイル
       {
         test: /\.scss$/, // 対象となるファイルの拡張子
         use: [
-          // linkタグに出力する機能
-          "style-loader",
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
