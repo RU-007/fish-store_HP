@@ -1,5 +1,214 @@
 @use '../global' as g;
 
-h1 {
-  color: g.$mainColor;
+.header-container {
+  padding: 8px 8px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px 8px;
+  }
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.header-logo-image {
+  width: 36px;
+  height: 36px;
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    height: 100%;
+    max-width: 60px;
+    max-height: 60%;
+  }
+}
+
+.head-logo-title {
+  font-size: 12px;
+  line-height: 1.2;
+  color: #11b2d7;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+/* ハンバーガーメニューが閉じているとき */
+.header-nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: -400px;
+  bottom: 0;
+  z-index: 3;
+  transition: right 0.5s;
+  font-size: 16px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+    text-align: right;
+    position: static;
+    width: auto;
+    height: auto;
+    transform: translateX(0);
+    display: block;
+    background-color: transparent;
+    transition: none;
+  }
+}
+
+.header-nav__list {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 12px;
+  }
+}
+
+.header-nav__item {
+  font-size: 8px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+/* ハンバーガーメニューが開いているとき */
+.open .header_inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 50px;
+  opacity: 1;
+  padding: 8px 24px;
+}
+
+.open .header-nav {
+  right: 0;
+  padding: 50px 25px;
+
+  @media screen and (min-width: 768px) {
+    position: static;
+    width: auto;
+    height: auto;
+    transform: translateX(0);
+    display: block;
+    background-color: transparent;
+    font-size: 16px;
+    transition: none;
+  }
+}
+
+.open .header-nav__item {
+  margin-bottom: 16px;
+
+
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+  }
+}
+
+/*ハンバーガーメニュー三本線の配置*/
+.hamburger-btn {
+  width: 24px;
+  height: 18px;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin-left: auto;
+  transition: all 0.5s;
+  cursor: pointer;
+  z-index: 4;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+/* 三本線のバー(閉じているとき) */
+.hamburger-btn__bar {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.5s;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+/* 1~3本目の線の設定(閉じているとき) */
+.hamburger-btn__bar:nth-child(1) {
+  bottom: 16px;
+}
+
+.hamburger-btn__bar:nth-child(2) {
+  bottom: 8px;
+}
+
+.hamburger-btn__bar:nth-child(3) {
+  bottom: 0px;
+}
+
+/* 1~3本目の線の設定(開いているとき）*/
+.open .hamburger-btn__bar:nth-child(1) {
+  transform: translateY(8px) rotate(-45deg);
+}
+
+.open .hamburger-btn__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.open .hamburger-btn__bar:nth-child(3) {
+  transform: translateY(-8px) rotate(45deg);
+}
+
+/* メニューが閉じていている時の背景スタイル */
+#hamburger-mask {
+  display: none;
+  transition: all 0.5s;
+}
+
+/*メニューが開いている時の背景スタイル*/
+.open #hamburger-mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: gainsboro;
+  opacity: 0.5;
+  /*色の透明度*/
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
