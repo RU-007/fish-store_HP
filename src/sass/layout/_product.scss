@@ -1,0 +1,30 @@
+@use '../global' as g;
+
+.product-container {
+  width: 100%; // スライダー全体の幅
+  overflow: hidden; // スライダー外の要素を隠す
+  position: relative;
+
+  .product-wrapper {
+    display: flex; // 横並びにする
+  transition: transform 0.5s ease-in-out; // スライドのアニメーション
+  }
+
+  .product-image {
+    width: 100%; // 画像をアイテムの幅に合わせる
+    height: auto; // アスペクト比を維持
+    object-fit: cover; // 画像をトリミングしてフィット
+  }
+
+  .product-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 8px;
+  }
+
+  .product-text {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 4px;
+  }
+}
