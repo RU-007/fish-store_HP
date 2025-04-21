@@ -1,0 +1,23 @@
+@use '../global' as g;
+
+.footer-container {
+  background-color: black;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include g.mq(md) {
+    height: 48px;
+  }
+
+  .footer-inner {
+    color: white;
+    font-size: 8px;
+    text-align: center;
+
+    @include g.mq(md) {
+      font-size: 16px;
+    }
+  }
+}

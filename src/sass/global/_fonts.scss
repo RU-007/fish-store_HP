@@ -1,0 +1,12 @@
+$baseFontFamily: 'Noto Sans JP', sans-serif;
+$englishFont: 'Charter','Lora', serif;
+$headingFont: 'Nunito Sans', sans-serif;
+$titleFont: 'Orkney',sans-serif;
+$footerFont: 'Arial',sans-serif;
+
+
+// pxからremへの計算
+// ex) font-size: rem(30);
+@function rem($px, $baseFontSize: 16) {
+	@return calc($px / $baseFontSize * 1rem);
+}

@@ -5,48 +5,60 @@
   text-align: center;
 
   .news-wrapper {
+    padding: 8px 0;
+
+    @include g.mq(md) {
     max-width: 900px;
     margin: 0 auto;
     display: flex;
     justify-content: center; // ← 全体を中央に寄せる
     align-items: center; // ← 高さ揃える
     gap: 40px; // ← 要素の間にスペースを空ける
-    padding: 20px;
+    padding: 8px 0;
     flex-wrap: wrap; // ← 画面が狭いときに折り返しOK                  // 余白つけると見やすい
+    }
 
     .news-title {
-      font-size: 24px;
+      font-size: g.rem(24);
       font-weight: bold;
     }
 
     .news-item {
-      font-size: 16px;
+      font-size: g.rem(16);
       padding: 8px 0;
       border-bottom: 1px solid #000000; // ← 下線を追加
     }
 
-    .news-more-link {
+    .news-list {
+      margin: 8px 0;
+    }
+
+    .btn-more-area {
       display: inline-block;
       outline: none;
       cursor: pointer;
-      font-size: 16px;
+      font-size: g.rem(16);
       line-height: 1;
-      border-radius: 25px;
-      transition-property: background-color,border-color,color,box-shadow,filter;
+      border-radius: 24px;
+      transition-property: background-color, border-color, color, box-shadow, filter;
       transition-duration: .3s;
       border: 1px solid transparent;
-      min-width: 120px;
       text-transform: uppercase;
       white-space: normal;
       font-weight: 700;
       text-align: center;
-      padding: 14px 0;
+      padding: 8px 0;
       color: #616467;
       box-shadow: inset 0 0 0 2px #616467;
       background-color: transparent;
-      :hover{
-          color: #fff;
-          background-color: #616467;
+
+      :hover {
+        color: #fff;
+        background-color: #616467;
+      }
+
+      .btn-more-link {
+        margin: 8px;
       }
     }
   }

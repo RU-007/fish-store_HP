@@ -3,7 +3,7 @@
 .header-container {
   padding: 8px 8px;
 
-  @media screen and (min-width: 768px) {
+  @include g.mq(md) {
     margin-left: auto;
     margin-right: auto;
     padding: 8px 8px;
@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: space-between;
 
-  @media screen and (min-width: 768px) {
+  @include g.mq(md) {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,7 +28,7 @@
   align-items: center;
   gap: 8px;
 
-  @media screen and (min-width: 768px) {
+  @include g.mq(md) {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -39,7 +39,7 @@
   width: 36px;
   height: 36px;
 
-  @media screen and (min-width: 768px) {
+  @include g.mq(md) {
     width: 100%;
     height: 100%;
     max-width: 60px;
@@ -48,12 +48,12 @@
 }
 
 .head-logo-title {
-  font-size: 12px;
+  font-size: g.rem(12);
   line-height: 1.2;
   color: #11b2d7;
 
-  @media screen and (min-width: 768px) {
-    font-size: 24px;
+  @include g.mq(md) {
+    font-size: g.rem(24);
   }
 }
 
@@ -66,11 +66,11 @@
   bottom: 0;
   z-index: 3;
   transition: right 0.5s;
-  font-size: 16px;
+  font-size: g.rem(16);
   text-align: center;
   background-color: rgb(255, 255, 255);
 
-  @media screen and (min-width: 768px) {
+  @include g.mq(md) {
     margin-left: auto;
     text-align: right;
     position: static;
@@ -84,17 +84,17 @@
 }
 
 .header-nav__list {
-  @media screen and (min-width: 768px) {
+  @include g.mq(md) {
     display: flex;
     gap: 12px;
   }
 }
 
 .header-nav__item {
-  font-size: 8px;
+  font-size: g.rem(8);
 
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
+  @include g.mq(md) {
+    font-size: g.rem(16);
   }
 }
 
@@ -112,14 +112,14 @@
   right: 0;
   padding: 50px 25px;
 
-  @media screen and (min-width: 768px) {
+  @include g.mq(md) {
     position: static;
     width: auto;
     height: auto;
     transform: translateX(0);
     display: block;
     background-color: transparent;
-    font-size: 16px;
+    font-size: g.rem(16);
     transition: none;
   }
 }
@@ -128,7 +128,7 @@
   margin-bottom: 16px;
 
 
-  @media screen and (min-width: 768px) {
+  @include g.mq(md) {
     margin-top: 0;
   }
 }
@@ -145,7 +145,7 @@
   cursor: pointer;
   z-index: 4;
 
-  @media screen and (min-width: 768px) {
+  @include g.mq(md) {
     display: none;
   }
 }
@@ -158,7 +158,7 @@
   background-color: #333;
   transition: all 0.5s;
 
-  @media screen and (min-width: 768px) {
+  @include g.mq(md) {
     display: none;
   }
 }
@@ -208,7 +208,7 @@
   /*色の透明度*/
   cursor: pointer;
 
-  @media screen and (min-width: 768px) {
+  @include g.mq(md) {
     display: none;
   }
 }

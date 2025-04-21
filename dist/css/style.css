@@ -142,7 +142,7 @@ button {
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
-  *font-size: 100%;
+  font-size: 100%;
   background: none;
   border: none;
   outline: none;
