@@ -1,0 +1,49 @@
+@use '../global' as g;
+
+.store-intro-container {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  padding-top: 80px;
+  height: 100%;
+
+  .store-intro-wrapper {
+    text-align: center;
+    width: 100%;
+
+    @include g.mq(md) {
+      display: flex;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .store-intro-image {
+    display: block;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .store-intro-area {
+    padding: 24px;
+
+    @include g.mq(md) {
+      display: flex; // Flexboxを有効化
+      flex-direction: column; // 縦方向に配置
+      justify-content: center; // 垂直方向の中央揃え
+      align-items: center; // 水平方向の中央揃え
+      padding: 24px;
+      gap: 64px;
+    }
+
+    .store-intro-title {
+      font-size: g.rem(24);
+      font-weight: bold;
+    }
+
+    .store-intro-text {
+      margin-top: 24px;
+      text-align: center;
+    }
+  }
+}
