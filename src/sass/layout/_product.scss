@@ -1,30 +1,52 @@
 @use '../global' as g;
 
 .product-container {
-  width: 100%; // スライダー全体の幅
-  overflow: hidden; // スライダー外の要素を隠す
-  position: relative;
+  margin-top: 80px;
+  overflow: hidden;
 
   .product-wrapper {
-    display: flex; // 横並びにする
-  transition: transform 0.5s ease-in-out; // スライドのアニメーション
+    font-size: 24px;
+    margin: 8px 0;
   }
 
-  .product-image {
-    width: 100%; // 画像をアイテムの幅に合わせる
-    height: auto; // アスペクト比を維持
-    object-fit: cover; // 画像をトリミングしてフィット
-  }
+  .product-carousel-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
 
-  .product-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 8px;
-  }
+    .product-carousel-list {
+      display: flex;
+      gap: 20px; // スライド間の余白
+      transition: transform 0.5s ease;
+    }
 
-  .product-text {
-    font-size: 1rem;
-    color: #555;
-    margin-top: 4px;
+    .product-carousel-item {
+      flex: 0 0 calc((100% - 40px) / 3); // スマホ：3枚表示 → 2つのgap＝20px
+      background-color: #eee;
+
+      @include g.mq(md) {
+        flex: 0 0 calc((100% - 80px) / 5); // PC：5枚表示 → 4つのgap＝40px
+      }
+    }
+
+    .indicator {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 0;
+      list-style: none;
+
+      .indicator-list {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &.active {
+          background-color: #333;
+        }
+      }
+    }
   }
 }
