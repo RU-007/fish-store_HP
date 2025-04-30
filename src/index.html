@@ -27,7 +27,9 @@
             <li class="header-nav__item">商品紹介</li>
             <li class="header-nav__item">店舗情報</li>
             <li class="header-nav__item">お問い合わせ</li>
-            <li class="header-nav__item">ご注文</li>
+            <li class="header-nav__item header-nav__item-cart">
+              <img src="./images/ショッピングカート.png" alt="カートのアイコン" class="header-nav__icon">ご注文
+            </li>
           </ul>
         </nav>
 
@@ -206,8 +208,34 @@
         <li class="indicator-list"></li>
       </ul>
     </div>
+  </section>
 
+  <!-- 店舗情報 -->
+  <section class="store-info">
+    <div class="store-info-wrapper">
+      <h2 class="store-info-title">店舗情報</h2>
+      <div class="store-info-area">
+        <div class="store-address-area">
+          <p class="store-address-text">〒654-0021　兵庫県神戸市須磨区平田町3丁目3-2</p>
+        </div>
+        <div class="store-hours-area">
+          <p class="store-hours-text">営業時間：09:00 - 19:00 （定休日：日曜）</p>
+        </div>
+        <div class="store-tell-area">
+          <img src="./images/電話の受話器のアイコン素材.png" alt="受話器のアイコン" class="store-tell-icon">
+          <p class="store-tell-text">078-732-3749</p>
+        </div>
 
+        <!-- google map埋め込み -->
+        <div class="store-map-area">
+          <iframe class="store-map-iframe" title="Google Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.786893372201!2d135.13153107407553!3d34.660084485393845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000859ec6efaa69%3A0xadecefa22327de95!2z44CSNjU0LTAwMjEg5YW15bqr55yM56We5oi45biC6aCI56Oo5Yy65bmz55Sw55S677yT5LiB55uu77yT4oiS77yS!5e0!3m2!1sja!2sjp!4v1745993719323!5m2!1sja!2sjp"
+            width="390" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
   </section>
 
 

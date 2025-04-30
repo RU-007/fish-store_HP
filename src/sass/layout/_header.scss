@@ -36,8 +36,8 @@
 }
 
 .header-logo-image {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
 
   @include g.mq(md) {
     width: 100%;
@@ -53,7 +53,7 @@
   color: #11b2d7;
 
   @include g.mq(md) {
-    font-size: g.rem(24);
+    font-size: g.rem(16);
   }
 }
 
@@ -86,20 +86,63 @@
 .header-nav__list {
   @include g.mq(md) {
     display: flex;
-    gap: 12px;
+    gap: 6px;
   }
 }
 
 .header-nav__item {
   font-size: g.rem(14);
+  display: flex; // アイコンとテキストを横並びに
+  align-items: center; // 縦方向の中央揃え
+  position: relative; // 疑似要素の基準位置を設定
+  padding: 0 8px; // アイテムの左右に余白を追加
 
   @include g.mq(md) {
     font-size: g.rem(16);
+
+    &::after {
+      content: ''; // 疑似要素を作成
+      position: absolute;
+      top: 50%; // 垂直方向の中央に配置
+      right: 0; // アイテムの右端に配置
+      transform: translateY(-50%); // 中央揃え
+      width: 1px; // 線の幅
+      height: 60%; // 線の高さ
+      background-color: rgba(0, 0, 0, 0.2); // 線の色（薄いグレー）
+    }
+  
+    &:last-child::after {
+      display: none; // 最後のアイテムには線を表示しない
+    }
+  }
+
+  .header-nav__item-cart {
+    font-size: 24px;
   }
 }
 
+.header-nav__item-cart {
+  border: 1px solid rgba(0, 0, 0, 0.5); // 薄い枠線を追加
+  background-color: rgba(66, 212, 245, 0.3); // 薄い背景色を設定
+  border-radius: 12px; // 角を丸くする
+  padding: 2px 4px; // 内側の余白を追加
+
+  .header-nav__icon {
+    width: 24px;
+    height: 18px;
+    object-fit: contain; // アスペクト比を維持
+
+    @include g.mq(md) {
+      width: 24px;
+      height: 18px;
+      object-fit: contain; // アスペクト比を維持
+    }
+  }
+}
+
+
 /* ハンバーガーメニューが開いているとき */
-.open .header_inner {
+.open .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -125,13 +168,19 @@
 }
 
 .open .header-nav__item {
-  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); // 横線を追加
+  padding-bottom: 8px; // 横線とコンテンツの間に余白を追加
+  margin-bottom: 16px; // アイテム間の余白を設定
 
+  &:last-child {
+    margin-bottom: 0; // 最後のアイテムの余白を削除
+  }
 
   @include g.mq(md) {
     margin-top: 0;
   }
 }
+
 
 /*ハンバーガーメニュー三本線の配置*/
 .hamburger-btn {
