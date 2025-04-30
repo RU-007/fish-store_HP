@@ -48,7 +48,7 @@
 }
 
 .head-logo-title {
-  font-size: g.rem(12);
+  font-size: g.rem(14);
   line-height: 1.2;
   color: #11b2d7;
 
@@ -91,7 +91,7 @@
 }
 
 .header-nav__item {
-  font-size: g.rem(8);
+  font-size: g.rem(14);
 
   @include g.mq(md) {
     font-size: g.rem(16);

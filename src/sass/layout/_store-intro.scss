@@ -47,3 +47,50 @@
     }
   }
 }
+
+.store-features {
+  margin-top: 80px;
+
+  @include g.mq(md) {
+    display: flex;
+    gap: 24px;
+    margin: 80px 24px 0;
+  }
+
+  .store-feature-wrapper {
+    background-color: rgba(205, 229, 237, 0.5);
+    display: flow-root;
+    padding-top: 24px;
+
+    @include g.mq(md) {
+      border-radius: 10px;
+    }
+  }
+
+  .store-feature-title {
+    font-size: g.rem(24);
+    margin-top: 8px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .store-feature-text {
+    font-size: g.rem(16);
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .store-feature-image-area {
+    display: flex;
+    justify-content: center;
+    margin: 24px;
+
+    .store-feature-image {
+      display: block;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 50%;
+      height: auto;
+    }
+  }
+}
