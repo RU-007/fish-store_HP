@@ -18,39 +18,163 @@
           <h1 class="head-logo-title">鮮魚ショップ<br>こうちゃん</h1>
         </div>
 
-        <!-- ヘッダーリスト -->
-        <div class="header-nav">
-          <nav class="header-nav__content">
-            <ul class="header-nav__list">
-              <li class="header-nav__item">TOP</li>
-              <li class="header-nav__item">お知らせ</li>
-              <li class="header-nav__item">店舗紹介</li>
-              <li class="header-nav__item">商品紹介</li>
-              <li class="header-nav__item">店舗情報</li>
-              <li class="header-nav__item">お問い合わせ</li>
-              <li class="header-nav__item">ご注文</li>
-            </ul>
-          </nav>
-        </div>
+        <!-- ヘッダーナビリスト -->
+        <nav class="header-nav">
+          <ul class="header-nav__list">
+            <li class="header-nav__item">TOP</li>
+            <li class="header-nav__item">お知らせ</li>
+            <li class="header-nav__item">店舗紹介</li>
+            <li class="header-nav__item">商品紹介</li>
+            <li class="header-nav__item">店舗情報</li>
+            <li class="header-nav__item">お問い合わせ</li>
+            <li class="header-nav__item">ご注文</li>
+          </ul>
+        </nav>
 
         <!-- ハンバーガーメニュー・ボタン -->
         <div class="hamburger-btn">
-          <span class="hamburger-btn_bar"></span>
-          <span class="hamburger-btn_bar"></span>
-          <span class="hamburger-btn_bar"></span>
+          <span class="hamburger-btn__bar"></span>
+          <span class="hamburger-btn__bar"></span>
+          <span class="hamburger-btn__bar"></span>
         </div>
-        <div id="mask"></div>
+        <!-- ハンバーガーメニュー・マスク -->
+        <div id="hamburger-mask"></div>
       </div>
     </div>
   </header>
 
-  <!-- ヒーローイメージ -->
-   <section class="hero-container">
+  <!-- ヒーローイメージページ -->
+  <section class="hero-container">
     <div class="hero-wrapper">
       <img src="./images/kiji1Img.jpg" alt="鮮魚店の写真" class="hero-image">
     </div>
-   </section>
+  </section>
 
+  <!-- お知らせページ -->
+  <section class="news-container">
+    <div class="news-wrapper">
+      <h2 class="news-title">お知らせ</h2>
+      <ul class="news-list">
+        <li class="news-item">2025.2.22：特売セール開催中！</li>
+        <li class="news-item">2025.2.22：夏季休業のお知らせ</li>
+      </ul>
+      <div class="btn-more-area">
+        <a href="news.html" class="btn-more-link">もっと見る→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗紹介ページ -->
+  <section class="store-intro-container">
+    <div class="store-intro-wrapper">
+      <div class="store-intro-image-area">
+        <img src="./images/IMG_2045-rotated.jpg" alt="店長の顔の写真" class="store-intro-image">
+      </div>
+      <div class="store-intro-area">
+        <h3 class="store-intro-title">「安心」と「おいしさ」を、皆様の食卓へ</h3>
+        <p class="store-intro-text">
+          鮮魚ショップこうちゃんは、神戸・淡路から直送される新鮮な魚介を
+          毎朝提供。<br>
+          骨取りや一口サイズの加工など、個人、法人問わず柔軟に対応。<br>
+          大量注文や惣菜、お弁当の配達も可能。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 商品紹介ページ -->
+  <section class="product-container">
+    <div class="product-wrapper">
+      <h2 class="product-title">商品紹介</h2>
+    </div>
+
+    <!-- 商品８個 -->
+    <!-- ↓ スライドの外枠 -->
+    <div class="product-carousel-wrapper">
+      <div class="product-carousel-list">
+        <div class="product-carousel-item">
+          <img src="./images/サーモン.jpeg" alt="サーモンの写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">サーモン</h3>
+            <p class="product-carousel-text">1,000円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/サーモン.jpeg" alt="サーモン2の写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">サーモン2</h3>
+            <p class="product-carousel-text">1,200円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/こがね.jpeg" alt="こがねの写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">こがね</h3>
+            <p class="product-carousel-text">1,500円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/金目鯛刺身.jpeg" alt="冷凍金目鯛の写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">冷凍金目鯛</h3>
+            <p class="product-carousel-text">1,800円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/鯛刺身.jpeg" alt="養殖鯛の写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">養殖鯛</h3>
+            <p class="product-carousel-text">1,000円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/銀たら.jpeg" alt="銀たらの写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">銀たら</h3>
+            <p class="product-carousel-text">1,000円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/銀たら.jpeg" alt="銀たらの写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">銀たら</h3>
+            <p class="product-carousel-text">1,000円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/銀たら.jpeg" alt="銀たらの写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">銀たら</h3>
+            <p class="product-carousel-text">1,000円（税込み）</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- インジケーター -->
+      <ul class="indicator" id="indicator">
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+      </ul>
+    </div>
+
+
+  </section>
+
+
+  <!-- フッダー -->
+  <footer class="footer-container">
+    <div class="footer-wrapper">
+      <div class="footer-inner">
+        <p class="footer-text">Copyright © 鮮魚ショップこうちゃん All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>

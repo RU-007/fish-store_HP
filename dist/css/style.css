@@ -142,7 +142,7 @@ button {
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
-  font-size: 100%;
+  *font-size: 100%;
   background: none;
   border: none;
   outline: none;
@@ -222,74 +222,33 @@ legend {
 }
 
 .head-logo-title {
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 1.2;
   color: #11b2d7;
 }
 @media screen and (min-width: 768px) {
   .head-logo-title {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 }
 
-/* ハンバーガーが閉じているとき */
+/* ハンバーガーメニューが閉じているとき */
 .header-nav {
-  display: none;
-}
-.header-nav.is-active {
   display: block;
   position: fixed;
   top: 0;
-  right: 0;
-  width: 70%;
-  height: 100vh;
-  background: #fff;
-  z-index: 100;
-  padding: 60px 20px;
+  right: -400px;
+  bottom: 0;
+  z-index: 3;
+  transition: right 0.5s;
+  font-size: 1rem;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
 }
 @media screen and (min-width: 768px) {
   .header-nav {
     margin-left: auto;
-    position: static;
-    width: auto;
     text-align: right;
-    display: block;
-  }
-}
-
-.header-nav__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-@media screen and (min-width: 768px) {
-  .header-nav__list {
-    display: flex;
-    gap: 12px;
-  }
-}
-
-.header-nav__item {
-  font-size: 8px;
-}
-@media screen and (min-width: 768px) {
-  .header-nav__item {
-    font-size: 16px;
-  }
-}
-
-/* ハンバーガーメニューが開いているとき */
-.header_inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 50px;
-  opacity: 1;
-  padding: 8px 24px;
-}
-
-@media screen and (min-width: 768px) {
-  .header-nav {
     position: static;
     width: auto;
     height: auto;
@@ -300,27 +259,69 @@ legend {
   }
 }
 
-.header-nav_item {
-  margin-top: 20px;
+@media screen and (min-width: 768px) {
+  .header-nav__list {
+    display: flex;
+    gap: 12px;
+  }
+}
+
+.header-nav__item {
+  font-size: 0.5rem;
 }
 @media screen and (min-width: 768px) {
-  .header-nav_item {
+  .header-nav__item {
+    font-size: 1rem;
+  }
+}
+
+/* ハンバーガーメニューが開いているとき */
+.open .header_inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 50px;
+  opacity: 1;
+  padding: 8px 24px;
+}
+
+.open .header-nav {
+  right: 0;
+  padding: 50px 25px;
+}
+@media screen and (min-width: 768px) {
+  .open .header-nav {
+    position: static;
+    width: auto;
+    height: auto;
+    transform: translateX(0);
+    display: block;
+    background-color: transparent;
+    font-size: 1rem;
+    transition: none;
+  }
+}
+
+.open .header-nav__item {
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 768px) {
+  .open .header-nav__item {
     margin-top: 0;
   }
 }
 
 /*ハンバーガーメニュー三本線の配置*/
 .hamburger-btn {
-  display: block;
   width: 24px;
   height: 18px;
   display: flex;
   position: relative;
-  flex-direction: column;
   justify-content: space-between;
   margin-left: auto;
   transition: all 0.5s;
   cursor: pointer;
+  z-index: 4;
 }
 @media screen and (min-width: 768px) {
   .hamburger-btn {
@@ -328,32 +329,255 @@ legend {
   }
 }
 
-/*ハンバーガーメニューの線の設定（閉じているとき）*/
-.hamburger-btn_bar {
-  display: block;
+/* 三本線のバー(閉じているとき) */
+.hamburger-btn__bar {
   position: absolute;
   width: 24px;
-  height: 1px;
+  height: 2px;
   background-color: #333;
   transition: all 0.5s;
 }
 @media screen and (min-width: 768px) {
-  .hamburger-btn_bar {
+  .hamburger-btn__bar {
     display: none;
   }
 }
 
-/*1~3本目の線の設定*/
-.hamburger-btn_bar:nth-child(1) {
+/* 1~3本目の線の設定(閉じているとき) */
+.hamburger-btn__bar:nth-child(1) {
   bottom: 16px;
 }
 
-.hamburger-btn_bar:nth-child(2) {
+.hamburger-btn__bar:nth-child(2) {
   bottom: 8px;
 }
 
-.hamburger-btn_bar:nth-child(3) {
+.hamburger-btn__bar:nth-child(3) {
   bottom: 0px;
+}
+
+/* 1~3本目の線の設定(開いているとき）*/
+.open .hamburger-btn__bar:nth-child(1) {
+  transform: translateY(8px) rotate(-45deg);
+}
+
+.open .hamburger-btn__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.open .hamburger-btn__bar:nth-child(3) {
+  transform: translateY(-8px) rotate(45deg);
+}
+
+/* メニューが閉じていている時の背景スタイル */
+#hamburger-mask {
+  display: none;
+  transition: all 0.5s;
+}
+
+/*メニューが開いている時の背景スタイル*/
+.open #hamburger-mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: gainsboro;
+  opacity: 0.5;
+  /*色の透明度*/
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .open #hamburger-mask {
+    display: none;
+  }
+}
+
+.hero-container {
+  width: 100%;
+}
+.hero-container .hero-wrapper {
+  width: 100%;
+}
+.hero-container .hero-wrapper img.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.news-container {
+  background-color: rgb(232, 232, 232);
+  text-align: center;
+}
+.news-container .news-wrapper {
+  padding: 8px 0;
+}
+@media screen and (min-width: 768px) {
+  .news-container .news-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 8px 0;
+    flex-wrap: wrap;
+  }
+}
+.news-container .news-wrapper .news-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.news-container .news-wrapper .news-item {
+  font-size: 1rem;
+  padding: 8px 0;
+  border-bottom: 1px solid #000000;
+}
+.news-container .news-wrapper .news-list {
+  margin: 8px 0;
+}
+.news-container .news-wrapper .btn-more-area {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  border-radius: 24px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: 0.3s;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  padding: 8px 0;
+  color: #616467;
+  box-shadow: inset 0 0 0 2px #616467;
+  background-color: transparent;
+}
+.news-container .news-wrapper .btn-more-area :hover {
+  color: #fff;
+  background-color: #616467;
+}
+.news-container .news-wrapper .btn-more-area .btn-more-link {
+  margin: 8px;
+}
+
+.store-intro-container {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  padding-top: 80px;
+  height: 100%;
+}
+.store-intro-container .store-intro-wrapper {
+  text-align: center;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .store-intro-container .store-intro-wrapper {
+    display: flex;
+    text-align: center;
+    width: 100%;
+  }
+}
+.store-intro-container .store-intro-image {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.store-intro-container .store-intro-area {
+  padding: 24px;
+}
+@media screen and (min-width: 768px) {
+  .store-intro-container .store-intro-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    gap: 64px;
+  }
+}
+.store-intro-container .store-intro-area .store-intro-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.store-intro-container .store-intro-area .store-intro-text {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.product-container {
+  margin-top: 80px;
+  overflow: hidden;
+}
+.product-container .product-wrapper {
+  font-size: 24px;
+  margin: 8px 0;
+}
+.product-container .product-carousel-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+}
+.product-container .product-carousel-wrapper .product-carousel-list {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+}
+.product-container .product-carousel-wrapper .product-carousel-item {
+  flex: 0 0 calc((100% - 40px) / 3);
+  background-color: #eee;
+}
+@media screen and (min-width: 768px) {
+  .product-container .product-carousel-wrapper .product-carousel-item {
+    flex: 0 0 calc((100% - 80px) / 5);
+  }
+}
+.product-container .product-carousel-wrapper .indicator {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+  list-style: none;
+}
+.product-container .product-carousel-wrapper .indicator .indicator-list {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.product-container .product-carousel-wrapper .indicator .indicator-list.active {
+  background-color: #333;
+}
+
+.footer-container {
+  background-color: black;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .footer-container {
+    height: 48px;
+  }
+}
+.footer-container .footer-inner {
+  color: white;
+  font-size: 8px;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .footer-container .footer-inner {
+    font-size: 16px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map*/
