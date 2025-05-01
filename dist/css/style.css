@@ -222,7 +222,7 @@ legend {
 }
 
 .head-logo-title {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   line-height: 1.2;
   color: #11b2d7;
 }
@@ -267,7 +267,7 @@ legend {
 }
 
 .header-nav__item {
-  font-size: 0.5rem;
+  font-size: 0.875rem;
 }
 @media screen and (min-width: 768px) {
   .header-nav__item {
@@ -432,7 +432,7 @@ legend {
   font-weight: bold;
 }
 .news-container .news-wrapper .news-item {
-  font-size: 1rem;
+  font-size: 0.875rem;
   padding: 8px 0;
   border-bottom: 1px solid #000000;
 }
@@ -443,7 +443,7 @@ legend {
   display: inline-block;
   outline: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1;
   border-radius: 24px;
   transition-property: background-color, border-color, color, box-shadow, filter;
@@ -512,6 +512,51 @@ legend {
   text-align: center;
 }
 
+.store-features {
+  margin-top: 80px;
+}
+@media screen and (min-width: 768px) {
+  .store-features {
+    display: flex;
+    gap: 24px;
+    margin: 80px 24px 0;
+  }
+}
+.store-features .store-feature-wrapper {
+  background-color: rgba(205, 229, 237, 0.5);
+  display: flow-root;
+  padding-top: 24px;
+}
+@media screen and (min-width: 768px) {
+  .store-features .store-feature-wrapper {
+    border-radius: 10px;
+  }
+}
+.store-features .store-feature-title {
+  font-size: 1.5rem;
+  margin-top: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+.store-features .store-feature-text {
+  font-size: 1rem;
+  margin-top: 8px;
+  text-align: center;
+}
+.store-features .store-feature-image-area {
+  display: flex;
+  justify-content: center;
+  margin: 24px;
+}
+.store-features .store-feature-image-area .store-feature-image {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  height: auto;
+}
+
 .product-container {
   margin-top: 80px;
   overflow: hidden;
@@ -526,7 +571,7 @@ legend {
 }
 .product-container .product-carousel-wrapper .product-carousel-list {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   transition: transform 0.5s ease;
 }
 .product-container .product-carousel-wrapper .product-carousel-item {
