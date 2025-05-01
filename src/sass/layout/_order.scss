@@ -1,0 +1,51 @@
+@use '../global' as g;
+
+.order-container {
+  margin-top: 80px;
+  background-color: #f0faff;
+
+  .order-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    .order-title {
+      font-size: g.rem(24);
+      font-weight: bold;
+      padding: 8px 0;
+    }
+  }
+
+  .order-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    background-color: #f9f9f9;
+
+    @include g.mq(md) {
+      justify-content: flex-start;
+      background-color: transparent;
+    }
+      
+
+    .order-title-text {
+      background-color: #f9f9f9;
+      font-size: g.rem(14);
+
+      @include g.mq(md) {
+        font-size: g.rem(16);
+      }
+    }
+  }
+}
+
+#memu {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: auto;
+  padding: 30px;
+}

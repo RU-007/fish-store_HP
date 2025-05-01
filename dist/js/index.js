@@ -104,6 +104,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
+/***/ "./src/js/order.js":
+/*!*************************!*\
+  !*** ./src/js/order.js ***!
+  \*************************/
+/***/ (function() {
+
+
+
+/***/ }),
+
 /***/ "./src/sass/style.scss":
 /*!*****************************!*\
   !*** ./src/sass/style.scss ***!
@@ -196,6 +206,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hamburger_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_hamburger_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _carousel_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./carousel.js */ "./src/js/carousel.js");
 /* harmony import */ var _carousel_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_carousel_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _order_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./order.js */ "./src/js/order.js");
+/* harmony import */ var _order_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_order_js__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
