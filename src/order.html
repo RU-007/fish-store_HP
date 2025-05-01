@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <header class="header-container">
+    <div class="header-wrapper">
+      <div class="header-inner">
+        <div class="header-logo">
+
+          <!-- ロゴ・タイトル -->
+          <img src="./images/三つ巴の家紋アイコン.png" alt="logo" class="header-logo-image">
+          <h1 class="head-logo-title">鮮魚ショップ<br>こうちゃん</h1>
+        </div>
+
+        <!-- ヘッダーナビリスト -->
+        <nav class="header-nav">
+          <ul class="header-nav__list">
+            <li class="header-nav__item">TOP</li>
+            <li class="header-nav__item">お知らせ</li>
+            <li class="header-nav__item">店舗紹介</li>
+            <li class="header-nav__item">商品紹介</li>
+            <li class="header-nav__item">店舗情報</li>
+            <li class="header-nav__item">お問い合わせ</li>
+            <li class="header-nav__item header-nav__item-cart">
+              <img src="./images/ショッピングカート.png" alt="カートのアイコン" class="header-nav__icon">ご注文
+            </li>
+          </ul>
+        </nav>
+
+        <!-- ハンバーガーメニュー・ボタン -->
+        <div class="hamburger-btn">
+          <span class="hamburger-btn__bar"></span>
+          <span class="hamburger-btn__bar"></span>
+          <span class="hamburger-btn__bar"></span>
+        </div>
+        <!-- ハンバーガーメニュー・マスク -->
+        <div id="hamburger-mask"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ヒーローイメージページ -->
+  <section class="hero-container">
+    <div class="hero-wrapper">
+      <img src="./images/kiji1Img.jpg" alt="鮮魚店の写真" class="hero-image">
+    </div>
+  </section>
+
+  <!-- お知らせページ -->
+  <section class="news-container">
+    <div class="news-wrapper">
+      <h2 class="news-title">お知らせ</h2>
+      <ul class="news-list">
+        <li class="news-item">2025.2.22：特売セール開催中！</li>
+        <li class="news-item">2025.2.22：夏季休業のお知らせ</li>
+      </ul>
+      <div class="btn-more-area">
+        <a href="news.html" class="btn-more-link">もっと見る→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗紹介ページ -->
+  <section class="store-intro-container">
+    <div class="store-intro-wrapper">
+      <div class="store-intro-image-area">
+        <img src="./images/IMG_2045-rotated.jpg" alt="店長の顔の写真" class="store-intro-image">
+      </div>
+      <div class="store-intro-area">
+        <h3 class="store-intro-title">「安心」と「おいしさ」を、皆様の食卓へ</h3>
+        <p class="store-intro-text">
+          鮮魚ショップこうちゃんは、神戸・淡路から直送される新鮮な魚介を
+          毎朝提供。<br>
+          骨取りや一口サイズの加工など、個人、法人問わず柔軟に対応。<br>
+          大量注文や惣菜、お弁当の配達も可能。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗の特徴 -->
+  <section class="store-features">
+    <div class="store-feature-wrapper">
+      <div class="store-feature-area">
+        <h4 class="store-feature-title">骨抜き</h4>
+        <p class="store-feature-text">骨抜きのプロが、手間いらずの状態でお届けします。</p>
+      </div>
+      <div class="store-feature-image-area">
+        <img src="./images/配送トラック.jpg" alt="骨抜きのイラスト" class="store-feature-image">
+      </div>
+    </div>
+
+    <div class="store-feature-wrapper">
+      <div class="store-feature-area">
+        <h4 class="store-feature-title">一口サイズ加工</h4>
+        <p class="store-feature-text">一口サイズに加工して、食べやすくします。</p>
+      </div>
+      <div class="store-feature-image-area">
+        <img src="./images/魚の切り身.jpg" alt="魚の切り身のイラスト" class="store-feature-image">
+      </div>
+    </div>
+
+    <div class="store-feature-wrapper">
+      <div class="store-feature-area">
+        <h4 class="store-feature-title">個人・法人問わず対応</h4>
+        <p class="store-feature-text">個人・法人問わず、柔軟に対応します。</p>
+      </div>
+      <div class="store-feature-image-area">
+        <img src="./images/鮮魚店接客.jpg" alt="鮮魚店接客のイラスト" class="store-feature-image">
+      </div>
+    </div>
+
+    <div class="store-feature-wrapper">
+      <div class="store-feature-area">
+        <h4 class="store-feature-title">惣菜・お弁当の配達</h4>
+        <p class="store-feature-text">惣菜・お弁当の配達も行っています。</p>
+      </div>
+      <div class="store-feature-image-area">
+        <img src="./images/配送トラック.jpg" alt="配送トラックのイラスト" class="store-feature-image">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 商品紹介ページ -->
+  <section class="product-container">
+    <div class="product-wrapper">
+      <h2 class="product-title">商品紹介</h2>
+    </div>
+
+    <!-- 商品８個 -->
+    <!-- ↓ スライドの外枠 -->
+    <div class="product-carousel-wrapper">
+      <div class="product-carousel-list">
+        <div class="product-carousel-item">
+          <img src="./images/サーモン.jpeg" alt="サーモンの写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">サーモン</h3>
+            <p class="product-carousel-text">1,000円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/サーモン.jpeg" alt="サーモン2の写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">サーモン2</h3>
+            <p class="product-carousel-text">1,200円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/こがね.jpeg" alt="こがねの写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">こがね</h3>
+            <p class="product-carousel-text">1,500円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/金目鯛刺身.jpeg" alt="冷凍金目鯛の写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">冷凍金目鯛</h3>
+            <p class="product-carousel-text">1,800円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/鯛刺身.jpeg" alt="養殖鯛の写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">養殖鯛</h3>
+            <p class="product-carousel-text">1,000円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/銀たら.jpeg" alt="銀たらの写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">銀たら</h3>
+            <p class="product-carousel-text">1,000円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/銀たら.jpeg" alt="銀たらの写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">銀たら</h3>
+            <p class="product-carousel-text">1,000円（税込み）</p>
+          </div>
+        </div>
+        <div class="product-carousel-item">
+          <img src="./images/銀たら.jpeg" alt="銀たらの写真" class="product-carousel-image">
+          <div>
+            <h3 class="product-carousel-name">銀たら</h3>
+            <p class="product-carousel-text">1,000円（税込み）</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- インジケーター -->
+      <ul class="indicator" id="indicator">
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+        <li class="indicator-list"></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section class="store-info">
+    <div class="store-info-wrapper">
+      <h2 class="store-info-title">店舗情報</h2>
+      <div class="store-info-area">
+        <div class="store-address-area">
+          <p class="store-address-text">〒654-0021　兵庫県神戸市須磨区平田町3丁目3-2</p>
+        </div>
+        <div class="store-hours-area">
+          <p class="store-hours-text">営業時間：09:00 - 19:00 （定休日：日曜）</p>
+        </div>
+        <div class="store-tell-area">
+          <img src="./images/電話の受話器のアイコン素材.png" alt="受話器のアイコン" class="store-tell-icon">
+          <p class="store-tell-text">078-732-3749</p>
+        </div>
+
+        <!-- google map埋め込み -->
+        <div class="store-map-area">
+          <iframe class="store-map-iframe" title="Google Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.786893372201!2d135.13153107407553!3d34.660084485393845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000859ec6efaa69%3A0xadecefa22327de95!2z44CSNjU0LTAwMjEg5YW15bqr55yM56We5oi45biC6aCI56Oo5Yy65bmz55Sw55S677yT5LiB55uu77yT4oiS77yS!5e0!3m2!1sja!2sjp!4v1745993719323!5m2!1sja!2sjp"
+            width="390" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- フッダー -->
+  <footer class="footer-container">
+    <div class="footer-wrapper">
+      <div class="footer-inner">
+        <p class="footer-text">Copyright © 鮮魚ショップこうちゃん All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
