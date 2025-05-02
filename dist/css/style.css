@@ -209,8 +209,8 @@ legend {
 }
 
 .header-logo-image {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
 }
 @media screen and (min-width: 768px) {
   .header-logo-image {
@@ -228,7 +228,7 @@ legend {
 }
 @media screen and (min-width: 768px) {
   .head-logo-title {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
 
@@ -262,21 +262,62 @@ legend {
 @media screen and (min-width: 768px) {
   .header-nav__list {
     display: flex;
-    gap: 12px;
+    gap: 6px;
   }
 }
 
 .header-nav__item {
   font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 8px;
 }
 @media screen and (min-width: 768px) {
   .header-nav__item {
     font-size: 1rem;
   }
+  .header-nav__item::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .header-nav__item:last-child::after {
+    display: none;
+  }
+}
+.header-nav__item .header-nav__item-cart {
+  font-size: 24px;
+}
+
+.header-nav__item-cart {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: rgba(66, 212, 245, 0.3);
+  border-radius: 12px;
+  padding: 2px 4px;
+}
+.header-nav__item-cart .header-nav__icon {
+  width: 24px;
+  height: 18px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media screen and (min-width: 768px) {
+  .header-nav__item-cart .header-nav__icon {
+    width: 24px;
+    height: 18px;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
 }
 
 /* ハンバーガーメニューが開いているとき */
-.open .header_inner {
+.open .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -303,7 +344,12 @@ legend {
 }
 
 .open .header-nav__item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 8px;
   margin-bottom: 16px;
+}
+.open .header-nav__item:last-child {
+  margin-bottom: 0;
 }
 @media screen and (min-width: 768px) {
   .open .header-nav__item {
@@ -539,7 +585,7 @@ legend {
   text-align: center;
 }
 .store-features .store-feature-text {
-  font-size: 1rem;
+  font-size: 0.875rem;
   margin-top: 8px;
   text-align: center;
 }
@@ -562,12 +608,19 @@ legend {
   overflow: hidden;
 }
 .product-container .product-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product-container .product-wrapper .product-title {
   font-size: 24px;
-  margin: 8px 0;
+  line-height: 1.2;
+  font-weight: bold;
 }
 .product-container .product-carousel-wrapper {
   max-width: 100%;
   margin: 0 auto;
+  margin-top: 16px;
 }
 .product-container .product-carousel-wrapper .product-carousel-list {
   display: flex;
@@ -602,6 +655,56 @@ legend {
   background-color: #333;
 }
 
+.store-info {
+  margin-top: 80px;
+}
+.store-info .store-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.store-info .store-info-wrapper .store-info-title {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+}
+@media screen and (min-width: 768px) {
+  .store-info .store-info-wrapper .store-info-title {
+    font-size: 1.5rem;
+  }
+}
+.store-info .store-info-wrapper .store-info-area {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+}
+@media screen and (min-width: 768px) {
+  .store-info .store-info-wrapper .store-info-area {
+    font-size: 1rem;
+  }
+}
+.store-info .store-info-wrapper .store-info-area .store-tell-area {
+  display: flex;
+}
+.store-info .store-info-wrapper .store-info-area .store-tell-area .store-tell-icon {
+  width: 18px;
+  height: 18px;
+}
+.store-info .store-info-wrapper .store-info-area .store-map-iframe {
+  width: 100%;
+  height: 300px;
+}
+@media screen and (min-width: 768px) {
+  .store-info .store-info-wrapper .store-info-area .store-map-iframe {
+    width: 600px;
+    height: 450px;
+  }
+}
+
 .footer-container {
   background-color: black;
   height: 32px;
@@ -623,6 +726,97 @@ legend {
   .footer-container .footer-inner {
     font-size: 16px;
   }
+}
+
+.order-container {
+  background-color: rgba(66, 212, 245, 0.1);
+}
+.order-container .order-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.order-container .order-inner .order-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 8px 0;
+}
+.order-container .order-text-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  background-color: #ececec;
+}
+@media screen and (min-width: 768px) {
+  .order-container .order-text-inner {
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+}
+.order-container .order-text-inner .order-text-title {
+  font-size: 0.875rem;
+}
+@media screen and (min-width: 768px) {
+  .order-container .order-text-inner .order-text-title {
+    font-size: 1rem;
+    padding: 8px;
+    background-color: #ececec;
+  }
+}
+
+.menu {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1020px;
+  margin: auto;
+  padding: 24px;
+}
+@media screen and (min-width: 768px) {
+  .menu {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.menu .menu-item {
+  background-color: #ffffff;
+}
+.menu img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.order-btn-inner {
+  align-items: center;
+  text-align: center;
+  padding-bottom: 24px;
+}
+.order-btn-inner .order-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  backface-visibility: hidden;
+  border: 0.3rem solid transparent;
+  border-radius: 3rem;
+  border-color: transparent;
+  background-color: #000000;
+  color: #ffffff;
+  transition: transform 0.2s cubic-bezier(0.235, 0, 0.05, 0.95);
+}
+
+.order-btn-text-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=style.css.map*/

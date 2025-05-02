@@ -25,6 +25,9 @@ module.exports = {
     open: true, // ブラウザで自動的に開く
     port: 8080, // ポート番号（任意）
     watchFiles: ['src/**/*'], // `src` フォルダ内の変更を監視
+    //devMiddleware: {
+     // writeToDisk: true, // `dist`フォルダにファイルを書き込む
+   // },
   },
   optimization: {
     minimize: false,  // 圧縮を無効化
@@ -93,6 +96,10 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/order.html', // order.htmlを指定
+      filename: 'order.html', // 出力先のファイル名
     }),
 		new CopyPlugin({
 			patterns: [

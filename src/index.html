@@ -14,21 +14,37 @@
         <div class="header-logo">
 
           <!-- ロゴ・タイトル -->
-          <img src="./images/三つ巴の家紋アイコン.png" alt="logo" class="header-logo-image">
+          <a href="index.html" class="header-logo-link">
+            <img src="./images/三つ巴の家紋アイコン.png" alt="logo" class="header-logo-image">
+          </a>
           <h1 class="head-logo-title">鮮魚ショップ<br>こうちゃん</h1>
         </div>
 
         <!-- ヘッダーナビリスト -->
         <nav class="header-nav">
           <ul class="header-nav__list">
-            <li class="header-nav__item">TOP</li>
-            <li class="header-nav__item">お知らせ</li>
-            <li class="header-nav__item">店舗紹介</li>
-            <li class="header-nav__item">商品紹介</li>
-            <li class="header-nav__item">店舗情報</li>
-            <li class="header-nav__item">お問い合わせ</li>
+            <li class="header-nav__item">
+              <a href="index.html" class="header-nav__link">TOP</a>
+            </li>
+            <li class="header-nav__item">
+              <a href="#news" class="header-nav__link">お知らせ</a>
+            </li>
+            <li class="header-nav__item">
+              <a href="#store-intro" class="header-nav__link">店舗紹介</a>
+            </li>
+            <li class="header-nav__item">
+              <a href="#product" class="header-nav__link">商品紹介</a>
+            </li>
+            <li class="header-nav__item">
+              <a href="#store-info" class="header-nav__link">店舗情報</a>
+            </li>
+            <li class="header-nav__item">
+              <a href="" class="header-nav__link">お問い合わせ</a>
+            </li>
             <li class="header-nav__item header-nav__item-cart">
-              <img src="./images/ショッピングカート.png" alt="カートのアイコン" class="header-nav__icon">ご注文
+              <a href="order.html" class="header-nav__link">
+                <img src="./images/ショッピングカート.png" alt="カートのアイコン" class="header-nav__icon">ご注文
+              </a>
             </li>
           </ul>
         </nav>
@@ -53,7 +69,7 @@
   </section>
 
   <!-- お知らせページ -->
-  <section class="news-container">
+  <section class="news-container" id="news">
     <div class="news-wrapper">
       <h2 class="news-title">お知らせ</h2>
       <ul class="news-list">
@@ -67,7 +83,7 @@
   </section>
 
   <!-- 店舗紹介ページ -->
-  <section class="store-intro-container">
+  <section class="store-intro-container" id="store-intro">
     <div class="store-intro-wrapper">
       <div class="store-intro-image-area">
         <img src="./images/IMG_2045-rotated.jpg" alt="店長の顔の写真" class="store-intro-image">
@@ -129,7 +145,7 @@
 
 
   <!-- 商品紹介ページ -->
-  <section class="product-container">
+  <section class="product-container" id="product">
     <div class="product-wrapper">
       <h2 class="product-title">商品紹介</h2>
     </div>
@@ -211,7 +227,7 @@
   </section>
 
   <!-- 店舗情報 -->
-  <section class="store-info">
+  <section class="store-info" id="store-info">
     <div class="store-info-wrapper">
       <h2 class="store-info-title">店舗情報</h2>
       <div class="store-info-area">

@@ -1,0 +1,99 @@
+@use '../global' as g;
+
+.order-container {
+  background-color: rgba(66, 212, 245, 0.1);
+
+  .order-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    .order-title {
+      font-size: g.rem(24);
+      font-weight: bold;
+      padding: 8px 0;
+    }
+  }
+
+  .order-text-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    background-color: #ececec;
+
+    @include g.mq(md) {
+      justify-content: flex-start;
+      background-color: transparent;
+    }
+
+    .order-text-title {
+      font-size: g.rem(14);
+
+      @include g.mq(md) {
+        font-size: g.rem(16);
+        padding: 8px;
+        background-color: #ececec;
+      }
+    }
+  }
+}
+
+.menu {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(2, 1fr); // 常に2列に設定
+  max-width: 1020px;
+  margin: auto;
+  padding: 24px;
+
+  @include g.mq(md) {
+    grid-template-columns: repeat(4, 1fr); // 常に2列に設定
+  }
+
+  .menu-item {
+    background-color: #ffffff;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+}
+
+
+
+.order-btn-inner {
+  align-items: center;
+  text-align: center;
+  padding-bottom: 24px;
+
+
+  .order-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 2rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    backface-visibility: hidden;
+    border: 0.3rem solid transparent;
+    border-radius: 3rem;
+    border-color: transparent;
+    background-color: #000000;
+    color: #ffffff;
+    transition: transform 0.2s cubic-bezier(0.235, 0, 0.05, 0.95);
+  }
+}
+
+.order-btn-text-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
