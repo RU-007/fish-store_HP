@@ -67,79 +67,43 @@
       <div class="order-inner">
         <h2 class="order-title">ご注文</h2>
       </div>
-
-      <div class="order-title-wrapper">
-        <h3 class="order-title-text">切り身（１５～３０切が基本）</h3>
+      <div class="order-text-wrapper">
+        <div class="order-text-inner">
+          <h3 class="order-text-title">切り身（１５～３０切が基本）</h3>
+        </div>
+        <!-- jsで代入 -->
+        <div class="menu" id="menu"></div>
       </div>
 
-      <div id="memu"></div>
+      <div class="order-text-wrapper">
+        <div class="order-text-inner">
+          <h3 class="order-text-title">お造り・お刺身（人数、予算に応じて対応）</h3>
+        </div>
+        <!-- jsで代入2 -->
+        <div class="menu" id="menu2"></div>
+      </div>
+    </div>
 
-      <ul>
-        <li>
-          <img src="./images/サーモン.jpeg" alt="サーモンの写真" class="order-image">
-          <dl class="order-detail">
-            <dt class="order-name">サーモン</dt>
-            <dd class="order-price">1,000円</dd>
-          </dl>
-        </li>
-
-        <li>
-          <img src="./images/サーモン２.jpeg" alt="サーモンの写真" class="order-image">
-          <dl class="order-detail">
-            <dt class="order-name">サーモン</dt>
-            <dd class="order-price">1,000円</dd>
-          </dl>
-        </li>
-
-        <li>
-          <img src="./images/サーモン.jpeg" alt="サーモンの写真" class="order-image">
-          <dl class="order-detail">
-            <dt class="order-name">サーモン</dt>
-            <dd class="order-price">1,000円</dd>
-          </dl>
-        </li>
-
-        <li>
-          <img src="./images/サーモン.jpeg" alt="サーモンの写真" class="order-image">
-          <dl class="order-detail">
-            <dt class="order-name">サーモン</dt>
-            <dd class="order-price">1,000円</dd>
-          </dl>
-        </li>
-
-        <li>
-          <img src="./images/サーモン.jpeg" alt="サーモンの写真" class="order-image">
-          <dl class="order-detail">
-            <dt class="order-name">サーモン</dt>
-            <dd class="order-price">1,000円</dd>
-          </dl>
-        </li>
-
-        <li>
-          <img src="./images/サーモン.jpeg" alt="サーモンの写真" class="order-image">
-          <dl class="order-detail">
-            <dt class="order-name">サーモン</dt>
-            <dd class="order-price">1,000円</dd>
-          </dl>
-        </li>
-
-        <li>
-          <img src="./images/サーモン.jpeg" alt="サーモンの写真" class="order-image">
-          <dl class="order-detail">
-            <dt class="order-name">サーモン</dt>
-            <dd class="order-price">1,000円</dd>
-          </dl>
-        </li>
-
-        <li>
-          <img src="./images/サーモン.jpeg" alt="サーモンの写真" class="order-image">
-          <dl class="order-detail">
-            <dt class="order-name">サーモン</dt>
-            <dd class="order-price">1,000円</dd>
-          </dl>
-        </li>
-      </ul>
-
+    <!-- ご注文ボタン -->
+    <div class="order-btn-wrapper">
+      <div class="order-btn-inner">
+        <a href="index.html" class="order-btn">ご注文はこちら</a>
+      </div>
+      <div class="order-btn-text-wrapper">
+        <p class="order-privacy-text">個人情報の収集について
+          <span class="order-privacy-link">「プライバシーポリシー」</span>
+          をお読みください。
+        </p>
+      </div>
+      <div class="order-btn-text-wrapper">
+        <p class="order-btn-checkbox">
+          <input type="checkbox" id="consent-chk" name="consent-chk" class="order-btn-checkbox-input" required>
+          <label class="order-btn-checkbox-label" for="consent-chk">プライバシーポリシーに同意する</label>
+        </p>
+      </div>
+      <div class="order-btn-text-wrapper">
+        <p class="order-btn-text">※ご注文はこちらをクリックの上<br>googleフォームより送信ください</p>
+      </div>
     </div>
   </section>
 
