@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 const menu = document.querySelector("#menu");
 const menu2 = document.querySelector("#menu2");
 
@@ -38,3 +39,5 @@ function renderMenu(targetMenu, items) {
 // menuとmenu2にそれぞれ異なるリストを追加
 renderMenu(menu, lists1);
 renderMenu(menu2, lists2);
+
+});

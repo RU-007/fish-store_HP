@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     .product-title {
       font-size: 24px;
       line-height: 1.2;
@@ -17,30 +17,48 @@
   }
 
   .product-carousel-wrapper {
-    max-width: 100%;
-    margin: 0 auto;
+    width: 100%;
+    position: relative;
     margin-top: 16px;
+    overflow: hidden;
+    box-sizing: border-box;/* 両端を空けて0.5枚分チラ見せ */
+    padding: 0 calc(((100% - 16px * 2) / 3) / 2); // ＝ 0 16.66%
+
+    @include g.mq(md) {
+      padding: 0 calc(((100% - 16px * 4) / 5) / 2); // ＝ 0 8.33%
+      
+    }
+
 
     .product-carousel-list {
       display: flex;
-      gap: 24px; // スライド間の余白
+      gap: 16px; // スライド間の余白
       transition: transform 0.5s ease;
+
+      @include g.mq(md) {}
     }
 
     .product-carousel-item {
-      flex: 0 0 calc((100% - 40px) / 3); // スマホ：3枚表示 → 2つのgap＝20px
-      background-color: #eee;
+      flex: 0 0 calc((100% - 16px * 2) / 3);
+      /* 1枚＋0.5＋0.5 → 3分割 */
+      box-sizing: border-box;
+      scroll-snap-align: center;
+      transition: transform 0.3s ease;
 
       @include g.mq(md) {
-        flex: 0 0 calc((100% - 80px) / 5); // PC：5枚表示 → 4つのgap＝40px
+        flex: 0 0 calc((100% - 16px * 4) / 5); // 5枚表示（gap考慮）
+      }
+
+      .product-carousel-image {
+        width: 100%;
       }
     }
 
     .indicator {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      padding: 10px 0;
+      gap: 12px;
+      padding-top: 16px;
       list-style: none;
 
       .indicator-list {
@@ -56,5 +74,12 @@
         }
       }
     }
+  }
+
+  .product-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
   }
 }
