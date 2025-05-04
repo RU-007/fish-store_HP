@@ -7,71 +7,47 @@
   \****************************/
 /***/ (function() {
 
-document.addEventListener('DOMContentLoaded', function () {
-  var track = document.querySelector('.product-carousel-list');
-  var slides = document.querySelectorAll('.product-carousel-item');
+document.addEventListener("DOMContentLoaded", function () {
+  var carousel = document.getElementById('carousel');
+  var items = document.querySelectorAll('.product-carousel-item');
   var indicators = document.querySelectorAll('.indicator-list');
-  var slideCount = slides.length;
-
-  //クローンを作成
-  var firstClone = slides[0].cloneNode(true);
-  var lastClone = slides[slideCount - 1].cloneNode(true);
-  firstClone.classList.add('clone');
-  lastClone.classList.add('clone');
-  track.appendChild(firstClone); // 最後にクローンを追加
-  track.insertBefore(lastClone, slides[0]); // 最初にクローンを追加
-
-  // スライド再取得（クローン込み）
-  var allSlides = document.querySelectorAll('.product-carousel-item');
-  var currentIndex = 1; // 実際の1番目にスタート
-  var slideWidth = allSlides[0].offsetWidth + parseInt(getComputedStyle(allSlides[0]).marginRight);
-
-  // スライド移動関数
-  function goToSlide(index) {
-    var smooth = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-    track.style.transition = smooth ? 'transform 0.5s ease' : 'none';
-    track.style.transform = "translateX(-".concat(slideWidth * index, "px)");
-
-    // インジケーターの更新
-    indicators.forEach(function (dot, i) {
-      dot.classList.toggle('active', i === (index - 1 + slideCount) % slideCount);
+  var currentIndex = 0;
+  var totalItems = items.length;
+  function getItemWidth() {
+    return items[0].getBoundingClientRect().width + 16; // gapを含める
+  }
+  function updateCarousel() {
+    var offset = getItemWidth();
+    // スライド中央寄せのため、wrapperのpaddingを含めて調整
+    var translateX = -(currentIndex * offset);
+    carousel.style.transform = "translateX(".concat(translateX, "px)");
+    indicators.forEach(function (dot, index) {
+      dot.classList.toggle('active', index === currentIndex);
     });
   }
-
-  // 自動スライド
   function autoSlide() {
-    currentIndex++;
-    goToSlide(currentIndex);
-    if (currentIndex === allSlides.length - 1) {
-      // クローンが最後に来たら、本物の1番目にジャンプ
-      setTimeout(function () {
-        currentIndex = 1;
-        goToSlide(currentIndex, false);
-      }, 500);
-    }
+    currentIndex = (currentIndex + 1) % totalItems;
+    updateCarousel();
   }
 
-  // 自動スライドのインターバル
+  // 初期表示
+  updateCarousel();
   var interval = setInterval(autoSlide, 3000);
 
-  // インジケータークリックで手動移動
-  indicators.forEach(function (dot, i) {
+  // インジケータークリック対応
+  indicators.forEach(function (dot, index) {
     dot.addEventListener('click', function () {
+      currentIndex = index;
+      updateCarousel();
       clearInterval(interval);
-      currentIndex = i + 1;
-      goToSlide(currentIndex);
-      interval = setInterval(autoSlide, 3000);
+      interval = setInterval(autoSlide, 3000); // 再開
     });
   });
 
-  // ウィンドウリサイズ時の調整
+  // ウィンドウリサイズ時の再計算
   window.addEventListener('resize', function () {
-    slideWidth = allSlides[0].offsetWidth + parseInt(getComputedStyle(allSlides[0]).marginRight);
-    goToSlide(currentIndex, false);
+    updateCarousel();
   });
-
-  // 初期位置セット（本物の1番目に設定）
-  goToSlide(currentIndex, false);
 });
 
 /***/ }),
@@ -110,82 +86,84 @@ document.addEventListener('DOMContentLoaded', function () {
   \*************************/
 /***/ (function() {
 
-var menu = document.querySelector("#menu");
-var menu2 = document.querySelector("#menu2");
-var lists1 = [{
-  name: 'サーモン',
-  img: 'サーモン.jpeg',
-  price: '1,000'
-}, {
-  name: 'サーモン２',
-  img: 'サーモン２.jpeg',
-  price: '1,200'
-}, {
-  name: '金目鯛刺身',
-  img: '金目鯛刺身.jpeg',
-  price: '1,500'
-}, {
-  name: '鯛刺身',
-  img: '鯛刺身.jpeg',
-  price: '1,300'
-}, {
-  name: '銀たら',
-  img: '銀たら.jpeg',
-  price: '1,400'
-}, {
-  name: 'たら切り身',
-  img: 'たら切り身.jpeg',
-  price: '1,100'
-}, {
-  name: 'ふり刺身',
-  img: 'ふり刺身.jpeg',
-  price: '1,600'
-}, {
-  name: 'さわら刺身',
-  img: 'さわら刺身.jpeg',
-  price: '1,700'
-}];
-var lists2 = [{
-  name: '銀たら',
-  img: '銀たら.jpeg',
-  price: '1,400'
-}, {
-  name: 'たら切り身',
-  img: 'たら切り身.jpeg',
-  price: '1,100'
-}, {
-  name: 'ふり刺身',
-  img: 'ふり刺身.jpeg',
-  price: '1,600'
-}, {
-  name: 'さわら刺身',
-  img: 'さわら刺身.jpeg',
-  price: '1,700'
-}, {
-  name: 'サーモン',
-  img: 'サーモン.jpeg',
-  price: '1,000'
-}, {
-  name: 'サーモン２',
-  img: 'サーモン２.jpeg',
-  price: '1,200'
-}];
+document.addEventListener("DOMContentLoaded", function () {
+  var menu = document.querySelector("#menu");
+  var menu2 = document.querySelector("#menu2");
+  var lists1 = [{
+    name: 'サーモン',
+    img: 'サーモン.jpeg',
+    price: '1,000'
+  }, {
+    name: 'サーモン２',
+    img: 'サーモン２.jpeg',
+    price: '1,200'
+  }, {
+    name: '金目鯛刺身',
+    img: '金目鯛刺身.jpeg',
+    price: '1,500'
+  }, {
+    name: '鯛刺身',
+    img: '鯛刺身.jpeg',
+    price: '1,300'
+  }, {
+    name: '銀たら',
+    img: '銀たら.jpeg',
+    price: '1,400'
+  }, {
+    name: 'たら切り身',
+    img: 'たら切り身.jpeg',
+    price: '1,100'
+  }, {
+    name: 'ふり刺身',
+    img: 'ふり刺身.jpeg',
+    price: '1,600'
+  }, {
+    name: 'さわら刺身',
+    img: 'さわら刺身.jpeg',
+    price: '1,700'
+  }];
+  var lists2 = [{
+    name: '銀たら',
+    img: '銀たら.jpeg',
+    price: '1,400'
+  }, {
+    name: 'たら切り身',
+    img: 'たら切り身.jpeg',
+    price: '1,100'
+  }, {
+    name: 'ふり刺身',
+    img: 'ふり刺身.jpeg',
+    price: '1,600'
+  }, {
+    name: 'さわら刺身',
+    img: 'さわら刺身.jpeg',
+    price: '1,700'
+  }, {
+    name: 'サーモン',
+    img: 'サーモン.jpeg',
+    price: '1,000'
+  }, {
+    name: 'サーモン２',
+    img: 'サーモン２.jpeg',
+    price: '1,200'
+  }];
 
-// 共通の関数を作成
-function renderMenu(targetMenu, items) {
-  for (var i = 0; i < items.length; i++) {
-    var _items$i = items[i],
-      name = _items$i.name,
-      img = _items$i.img,
-      price = _items$i.price;
-    var content = "\n      <div class=\"menu-item\">\n        <img src=\"./images/".concat(img, "\" alt=\"").concat(name, "\">\n        <h2>").concat(name, "</h2>\n        <p>").concat(price, "\u5186</p>\n      </div>");
-    targetMenu.insertAdjacentHTML('beforeend', content);
+  // 共通の関数を作成
+  function renderMenu(targetMenu, items) {
+    for (var i = 0; i < items.length; i++) {
+      var _items$i = items[i],
+        name = _items$i.name,
+        img = _items$i.img,
+        price = _items$i.price;
+      var content = "\n      <div class=\"menu-item\">\n        <img src=\"./images/".concat(img, "\" alt=\"").concat(name, "\">\n        <h2>").concat(name, "</h2>\n        <p>").concat(price, "\u5186</p>\n      </div>");
+      targetMenu.insertAdjacentHTML('beforeend', content);
+    }
   }
-}
 
-// menuとmenu2にそれぞれ異なるリストを追加
-renderMenu(menu, lists1);
-renderMenu(menu2, lists2);
+  // menuとmenu2にそれぞれ異なるリストを追加
+  renderMenu(menu, lists1);
+  renderMenu(menu2, lists2);
+});
 
 /***/ }),
 
