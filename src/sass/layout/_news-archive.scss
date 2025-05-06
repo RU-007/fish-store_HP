@@ -1,0 +1,13 @@
+@use '../global' as g;
+
+.news-archive-container {
+  background-color: g.$accentColor;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.news-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
