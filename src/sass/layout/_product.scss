@@ -1,34 +1,21 @@
 @use '../global' as g;
 
 .product-container {
-  margin-top: 80px;
   overflow: hidden;
-
-  .product-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .product-title {
-      font-size: 24px;
-      line-height: 1.2;
-      font-weight: bold;
-    }
-  }
 
   .product-carousel-wrapper {
     width: 100%;
     position: relative;
     margin-top: 16px;
     overflow: hidden;
-    box-sizing: border-box;/* 両端を空けて0.5枚分チラ見せ */
+    box-sizing: border-box;
+    /* 両端を空けて0.5枚分チラ見せ */
     padding: 0 calc(((100% - 16px * 2) / 3) / 2); // ＝ 0 16.66%
 
     @include g.mq(md) {
       padding: 0 calc(((100% - 16px * 4) / 5) / 2); // ＝ 0 8.33%
-      
-    }
 
+    }
 
     .product-carousel-list {
       display: flex;
@@ -39,8 +26,7 @@
     }
 
     .product-carousel-item {
-      flex: 0 0 calc((100% - 16px * 2) / 3);
-      /* 1枚＋0.5＋0.5 → 3分割 */
+      flex: 0 0 calc((100% - 16px * 2) / 3); /* 1枚＋0.5＋0.5 → 3分割 */
       box-sizing: border-box;
       scroll-snap-align: center;
       transition: transform 0.3s ease;
@@ -51,6 +37,8 @@
 
       .product-carousel-image {
         width: 100%;
+        height: 58%; // 高さを固定（必要に応じて調整）
+        object-fit: cover; // アスペクト比を維持しながら画像をトリミング
       }
     }
 

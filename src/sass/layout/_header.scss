@@ -148,7 +148,6 @@
   align-items: center;
   border-radius: 50px;
   opacity: 1;
-  padding: 8px 24px;
 }
 
 .open .header-nav {
@@ -204,7 +203,7 @@
   position: absolute;
   width: 24px;
   height: 2px;
-  background-color: #333;
+  background-color: g.$accentColor2;
   transition: all 0.5s;
 
   @include g.mq(md) {

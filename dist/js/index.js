@@ -9,45 +9,42 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   var carousel = document.getElementById('carousel');
-  var items = document.querySelectorAll('.product-carousel-item');
-  var indicators = document.querySelectorAll('.indicator-list');
-  var currentIndex = 0;
-  var totalItems = items.length;
-  function getItemWidth() {
-    return items[0].getBoundingClientRect().width + 16; // gapを含める
-  }
-  function updateCarousel() {
-    var offset = getItemWidth();
-    // スライド中央寄せのため、wrapperのpaddingを含めて調整
-    var translateX = -(currentIndex * offset);
-    carousel.style.transform = "translateX(".concat(translateX, "px)");
-    indicators.forEach(function (dot, index) {
-      dot.classList.toggle('active', index === currentIndex);
-    });
-  }
-  function autoSlide() {
-    currentIndex = (currentIndex + 1) % totalItems;
-    updateCarousel();
-  }
 
-  // 初期表示
-  updateCarousel();
-  var interval = setInterval(autoSlide, 3000);
+  // 商品がDOMに追加された後にカルーセルを初期化
+  setTimeout(function () {
+    var items = document.querySelectorAll('.product-carousel-item');
+    var indicators = document.querySelectorAll('.indicator-list');
+    if (items.length === 0) return; // 商品が1つもなければ中止
 
-  // インジケータークリック対応
-  indicators.forEach(function (dot, index) {
-    dot.addEventListener('click', function () {
-      currentIndex = index;
+    var currentIndex = 0;
+    var totalItems = items.length;
+    function getItemWidth() {
+      return items[0].getBoundingClientRect().width + 16; // gapを含める
+    }
+    function updateCarousel() {
+      var offset = getItemWidth();
+      var translateX = -(currentIndex * offset);
+      carousel.style.transform = "translateX(".concat(translateX, "px)");
+      indicators.forEach(function (dot, index) {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+    function autoSlide() {
+      currentIndex = (currentIndex + 1) % totalItems;
       updateCarousel();
-      clearInterval(interval);
-      interval = setInterval(autoSlide, 3000); // 再開
-    });
-  });
-
-  // ウィンドウリサイズ時の再計算
-  window.addEventListener('resize', function () {
+    }
     updateCarousel();
-  });
+    var interval = setInterval(autoSlide, 3000);
+    indicators.forEach(function (dot, index) {
+      dot.addEventListener('click', function () {
+        currentIndex = index;
+        updateCarousel();
+        clearInterval(interval);
+        interval = setInterval(autoSlide, 3000); // 再開
+      });
+    });
+    window.addEventListener('resize', updateCarousel);
+  }, 0);
 });
 
 /***/ }),
@@ -167,6 +164,89 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
+/***/ "./src/js/product.js":
+/*!***************************!*\
+  !*** ./src/js/product.js ***!
+  \***************************/
+/***/ (function() {
+
+document.addEventListener('DOMContentLoaded', function () {
+  var carousel = document.querySelector("#carousel");
+  var indicatorWrapper = document.getElementById("indicator");
+  var lists = [{
+    name: 'サーモン',
+    img: 'サーモン.jpeg',
+    price: '1,000'
+  }, {
+    name: 'サーモン２',
+    img: 'サーモン２.jpeg',
+    price: '1,200'
+  }, {
+    name: '金目鯛刺身',
+    img: '金目鯛刺身.jpeg',
+    price: '1,500'
+  }, {
+    name: '鯛刺身',
+    img: '鯛刺身.jpeg',
+    price: '1,300'
+  }, {
+    name: '銀たら',
+    img: '銀たら.jpeg',
+    price: '1,400'
+  }, {
+    name: 'たら切り身',
+    img: 'たら切り身.jpeg',
+    price: '1,100'
+  }, {
+    name: 'ふり刺身',
+    img: 'ふり刺身.jpeg',
+    price: '1,600'
+  }, {
+    name: 'さわら刺身',
+    img: 'さわら刺身.jpeg',
+    price: '1,700'
+  }, {
+    name: 'さわら刺身',
+    img: 'さわら刺身.jpeg',
+    price: '1,700'
+  }, {
+    name: 'さわら刺身',
+    img: 'さわら刺身.jpeg',
+    price: '1,700'
+  }, {
+    name: 'さわら刺身',
+    img: 'うなぎかば焼き.jpeg',
+    price: '1,700'
+  }, {
+    name: 'さわら刺身',
+    img: 'ふぐ刺身.jpeg',
+    price: '1,700'
+  }, {
+    name: 'さわら刺身',
+    img: '刺身.jpeg',
+    price: '1,700'
+  }, {
+    name: 'さわら刺身',
+    img: '焼き鯛.jpeg',
+    price: '1,700'
+  }];
+  for (var i = 0; i < lists.length; i++) {
+    var _lists$i = lists[i],
+      name = _lists$i.name,
+      img = _lists$i.img,
+      price = _lists$i.price;
+
+    // 商品アイテムを追加
+    var content = "\n      <div class=\"product-carousel-item\">\n        <img src=\"./images/".concat(img, "\" alt=\"").concat(name, "\" class=\"product-carousel-image\">\n        <div class=\"product-carousel-info\">\n          <h3 class=\"product-carousel-name\">").concat(name, "</h3>\n          <p class=\"product-carousel-text\">").concat(price, "\u5186\uFF08\u7A0E\u8FBC\u307F\uFF09</p>\n        </div>\n      </div>");
+    carousel.insertAdjacentHTML('beforeend', content);
+
+    // インジケーターを追加
+    indicatorWrapper.insertAdjacentHTML('beforeend', "<li class=\"indicator-list\"></li>");
+  }
+});
+
+/***/ }),
+
 /***/ "./src/sass/style.scss":
 /*!*****************************!*\
   !*** ./src/sass/style.scss ***!
@@ -261,6 +341,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _carousel_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_carousel_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _order_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./order.js */ "./src/js/order.js");
 /* harmony import */ var _order_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_order_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _product_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./product.js */ "./src/js/product.js");
+/* harmony import */ var _product_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_product_js__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 

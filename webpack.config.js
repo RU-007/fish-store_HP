@@ -101,6 +101,10 @@ module.exports = {
       template: './src/order.html', // order.htmlを指定
       filename: 'order.html', // 出力先のファイル名
     }),
+    new HtmlWebpackPlugin({
+      template: './src/news.html', // news.htmlを指定
+      filename: 'news.html', // 出力先のファイル名
+    }),
 		new CopyPlugin({
 			patterns: [
 				{
