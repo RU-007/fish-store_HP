@@ -49,6 +49,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
+/***/ "./src/js/contactForm.js":
+/*!*******************************!*\
+  !*** ./src/js/contactForm.js ***!
+  \*******************************/
+/***/ (function() {
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('wpcf7submit', function () {
+    var spinner = document.querySelector('.wpcf7-spinner');
+    if (spinner) {
+      spinner.style.display = 'none'; // 完了後は非表示に
+    }
+  });
+  document.addEventListener('wpcf7beforesubmit', function () {
+    var spinner = document.querySelector('.wpcf7-spinner');
+    if (spinner) {
+      spinner.style.display = 'block';
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./src/js/hamburger.js":
 /*!*****************************!*\
   !*** ./src/js/hamburger.js ***!
@@ -343,6 +366,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _order_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_order_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _product_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./product.js */ "./src/js/product.js");
 /* harmony import */ var _product_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_product_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _contactForm_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./contactForm.js */ "./src/js/contactForm.js");
+/* harmony import */ var _contactForm_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_contactForm_js__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
