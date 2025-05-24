@@ -184,6 +184,15 @@ legend {
   font-weight: bold;
 }
 
+/* お問い合わせ、ご注文のチェックボックススタイル */
+.consent-chk {
+  width: 15px;
+  height: 15px;
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
+}
+
 .header-container {
   padding: 8px 8px;
 }
@@ -758,6 +767,13 @@ legend {
 .contact-container .contact-form .contact-table .contact-table-area:last-child .contact-label::after {
   height: 120px;
 }
+.contact-container .contact-form .consent-chk {
+  width: 15px;
+  height: 15px;
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
+}
 .contact-container .contact-form .contact-form_btn {
   align-items: center;
   text-align: center;
@@ -867,12 +883,12 @@ legend {
 }
 
 .order-btn-wrapper {
-  padding-top: 16px;
+  padding: 16px 0;
 }
 .order-btn-wrapper .order-btn-inner {
   align-items: center;
   text-align: center;
-  padding-bottom: 16px;
+  padding: 16px 0;
 }
 .order-btn-wrapper .order-btn-inner .order-btn {
   display: inline-flex;
@@ -899,16 +915,73 @@ legend {
   justify-content: center;
 }
 
+/* お知らせアーカイブ */
 .news-archive-container {
   background-color: #f5f5f5;
-  padding: 32px 16px;
-  text-align: center;
+  padding-bottom: 24px;
+  /* 中央に配置 */
 }
-
-.news-wrapper {
-  max-width: 900px;
+.news-archive-container .news-wrapper {
+  max-width: 800px;
   margin: 0 auto;
-  text-align: left;
+  /* タイトル */
+  /* お知らせ一覧全体 */
+}
+.news-archive-container .news-wrapper .news-wrapper-title {
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+.news-archive-container .news-wrapper .news-info_wrapper {
+  /* 各お知らせ行 */
+}
+.news-archive-container .news-wrapper .news-info_wrapper .news-row_wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  border-bottom: 1px solid #ccc;
+  /* 日付とカテゴリの枠 */
+  /* 内容 */
+}
+@media screen and (min-width: 768px) {
+  .news-archive-container .news-wrapper .news-info_wrapper .news-row_wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+.news-archive-container .news-wrapper .news-info_wrapper .news-row_wrapper .news-date_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 0.875rem;
+  color: #666;
+}
+@media screen and (min-width: 768px) {
+  .news-archive-container .news-wrapper .news-info_wrapper .news-row_wrapper .news-date_wrapper {
+    font-size: 1rem;
+  }
+}
+.news-archive-container .news-wrapper .news-info_wrapper .news-row_wrapper .news-date_wrapper .news-classification {
+  padding: 0 12px;
+  /* カテゴリ */
+}
+.news-archive-container .news-wrapper .news-info_wrapper .news-row_wrapper .news-date_wrapper .news-classification .news-classification-title {
+  background-color: #e3e3e3;
+  color: #333;
+  font-size: 0.875rem;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+@media screen and (min-width: 768px) {
+  .news-archive-container .news-wrapper .news-info_wrapper .news-row_wrapper .news-date_wrapper .news-classification .news-classification-title {
+    font-size: 1rem;
+  }
+}
+.news-archive-container .news-wrapper .news-info_wrapper .news-row_wrapper .news-content p {
+  margin: 0;
+  color: #333;
+  line-height: 1.5;
 }
 
 /*# sourceMappingURL=style.css.map*/

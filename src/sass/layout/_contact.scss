@@ -8,10 +8,10 @@
 
   .contact-form {
     margin: 0 auto;
-    max-width: 400px; 
+    max-width: 400px;
 
     @include g.mq(md) {
-      max-width: 720px; 
+      max-width: 720px;
     }
 
     .contact-table {
@@ -47,6 +47,12 @@
       .contact-table-area:last-child .contact-label::after {
         height: 120px;
       }
+    }
+
+    .consent-chk {
+      width: 15px;
+      height: 15px;
+      appearance: auto;
     }
 
     .contact-form_btn {
