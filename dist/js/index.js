@@ -1,4 +1,3 @@
-//編集対象ファイル
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
