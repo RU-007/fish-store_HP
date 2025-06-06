@@ -378,3 +378,67 @@ __webpack_require__.r(__webpack_exports__);
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map
+
+//↓追加分
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const policyLink = document.querySelector(".order-privacy-link");
+  const consentCheckbox = document.querySelector("#consent-chk");
+  const orderButton = document.querySelector(".order-btn-inner a");
+
+  const modalHtml = `
+    <div id="policy-modal" style="
+      display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center;
+    ">
+      <div class="modal-content" style="background:#fff; padding:20px; max-width:600px; width:90%; margin:auto;">
+        <h2>プライバシーポリシー</h2>
+        <div id="policy-content" style="max-height:300px; overflow-y:auto; font-size:0.9rem;"></div>
+        <div style="text-align:right;">
+          <button id="policy-ok-button">OK</button>
+        </div>
+      </div>
+    </div>
+  `;
+  document.body.insertAdjacentHTML("beforeend", modalHtml);
+
+  const modal = document.getElementById("policy-modal");
+  const contentArea = document.getElementById("policy-content");
+  const okButton = document.getElementById("policy-ok-button");
+  let policyViewed = false;
+
+  policyLink.addEventListener("click", () => {
+    fetch("privacy_policy.txt")
+      .then(response => response.text())
+      .then(text => {
+        const htmlWithBreaks = text.replace(/\n/g, "<br>");
+        contentArea.innerHTML = htmlWithBreaks;
+        modal.style.display = "flex";
+        policyViewed = true;
+      })
+      .catch(err => {
+        contentArea.textContent = "プライバシーポリシーの読み込みに失敗しました。";
+        modal.style.display = "flex";
+      });
+  });
+
+  okButton.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  function toggleOrderButton() {
+    orderButton.style.pointerEvents = consentCheckbox.checked ? "auto" : "none";
+    orderButton.style.opacity = consentCheckbox.checked ? "1" : "0.5";
+  }
+
+  toggleOrderButton();
+  consentCheckbox.addEventListener("change", toggleOrderButton);
+
+  consentCheckbox.addEventListener("click", (e) => {
+    if (!policyViewed) {
+      e.preventDefault();
+      alert("プライバシーポリシーを確認してください。");
+    }
+  });
+});
