@@ -1,54 +1,6 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/carousel.js":
-/*!****************************!*\
-  !*** ./src/js/carousel.js ***!
-  \****************************/
-/***/ (function() {
-
-document.addEventListener("DOMContentLoaded", function () {
-  var carousel = document.getElementById('carousel');
-
-  // 商品がDOMに追加された後にカルーセルを初期化
-  setTimeout(function () {
-    var items = document.querySelectorAll('.product-carousel-item');
-    var indicators = document.querySelectorAll('.indicator-list');
-    if (items.length === 0) return; // 商品が1つもなければ中止
-
-    var currentIndex = 0;
-    var totalItems = items.length;
-    function getItemWidth() {
-      return items[0].getBoundingClientRect().width + 16; // gapを含める
-    }
-    function updateCarousel() {
-      var offset = getItemWidth();
-      var translateX = -(currentIndex * offset);
-      carousel.style.transform = "translateX(".concat(translateX, "px)");
-      indicators.forEach(function (dot, index) {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-    }
-    function autoSlide() {
-      currentIndex = (currentIndex + 1) % totalItems;
-      updateCarousel();
-    }
-    updateCarousel();
-    var interval = setInterval(autoSlide, 3000);
-    indicators.forEach(function (dot, index) {
-      dot.addEventListener('click', function () {
-        currentIndex = index;
-        updateCarousel();
-        clearInterval(interval);
-        interval = setInterval(autoSlide, 3000); // 再開
-      });
-    });
-    window.addEventListener('resize', updateCarousel);
-  }, 0);
-});
-
-/***/ }),
-
 /***/ "./src/js/contactForm.js":
 /*!*******************************!*\
   !*** ./src/js/contactForm.js ***!
@@ -96,6 +48,28 @@ document.addEventListener('DOMContentLoaded', function () {
       toggleMenu();
     }
   });
+});
+
+/***/ }),
+
+/***/ "./src/js/hero.js":
+/*!************************!*\
+  !*** ./src/js/hero.js ***!
+  \************************/
+/***/ (function() {
+
+document.addEventListener('DOMContentLoaded', function () {
+  var hero = document.querySelector("#hero");
+  var images = ['kiji1Img.jpg', 'うなぎかば焼き.jpeg', '金目鯛刺身.jpeg'];
+  var current = 0;
+  function showSlide(index) {
+    hero.innerHTML = "\n      <div class=\"hero-slide\">\n        <img src=\"./images/".concat(images[index], "\" class=\"hero-image\" alt=\"\">\n      </div>\n    ");
+  }
+  showSlide(current);
+  setInterval(function () {
+    current = (current + 1) % images.length;
+    showSlide(current);
+  }, 3000);
 });
 
 /***/ }),
@@ -195,7 +169,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener('DOMContentLoaded', function () {
   var carousel = document.querySelector("#carousel");
-  var indicatorWrapper = document.getElementById("indicator");
   var lists = [{
     name: 'サーモン',
     img: 'サーモン.jpeg',
@@ -262,10 +235,33 @@ document.addEventListener('DOMContentLoaded', function () {
     // 商品アイテムを追加
     var content = "\n      <div class=\"product-carousel-item\">\n        <img src=\"./images/".concat(img, "\" alt=\"").concat(name, "\" class=\"product-carousel-image\">\n        <div class=\"product-carousel-info\">\n          <h3 class=\"product-carousel-name\">").concat(name, "</h3>\n          <p class=\"product-carousel-text\">").concat(price, "\u5186\uFF08\u7A0E\u8FBC\u307F\uFF09</p>\n        </div>\n      </div>");
     carousel.insertAdjacentHTML('beforeend', content);
-
-    // インジケーターを追加
-    indicatorWrapper.insertAdjacentHTML('beforeend', "<li class=\"indicator-list\"></li>");
   }
+
+  // Slickの初期化（jQueryで実行）
+  $(function () {
+    $('#carousel').slick({
+      centerMode: true,
+      centerPadding: '80px',
+      // ← 両端にチラ見せ
+      dots: true,
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      arrows: true,
+      autoplay: true,
+      // ← 自動再生を有効に
+      autoplaySpeed: 3000,
+      // ← 自動再生の間隔（ミリ秒）
+      pauseOnHover: false,
+      // ← ホバー時に自動再生を停止しない
+      responsive: [{
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1
+        }
+      }]
+    });
+  });
 });
 
 /***/ }),
@@ -360,8 +356,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_style_scss__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hamburger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hamburger.js */ "./src/js/hamburger.js");
 /* harmony import */ var _hamburger_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_hamburger_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _carousel_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./carousel.js */ "./src/js/carousel.js");
-/* harmony import */ var _carousel_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_carousel_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _hero_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./hero.js */ "./src/js/hero.js");
+/* harmony import */ var _hero_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_hero_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _order_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./order.js */ "./src/js/order.js");
 /* harmony import */ var _order_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_order_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _product_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./product.js */ "./src/js/product.js");

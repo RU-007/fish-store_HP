@@ -13,7 +13,7 @@
 
   .footer-inner {
     color: g.$subColor;
-    font-size: 8px;
+    font-size: g.rem(8);
     text-align: center;
 
     @include g.mq(md) {

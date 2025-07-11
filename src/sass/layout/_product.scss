@@ -1,68 +1,27 @@
 @use '../global' as g;
 
-.product-container {
-  overflow: hidden;
+.product-carousel-wrapper {
+  margin: 0 auto;
+  padding: 20px 0;
+  max-width: 1000px;
+}
 
-  .product-carousel-wrapper {
-    width: 100%;
-    position: relative;
-    margin-top: 16px;
-    overflow: hidden;
-    box-sizing: border-box;
-    /* 両端を空けて0.5枚分チラ見せ */
-    padding: 0 calc(((100% - 16px * 2) / 3) / 2); // ＝ 0 16.66%
+.product-carousel-item {
+  padding: 0 10px;
+}
 
-    @include g.mq(md) {
-      padding: 0 calc(((100% - 16px * 4) / 5) / 2); // ＝ 0 8.33%
+.product-carousel-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
 
-    }
-
-    .product-carousel-list {
-      display: flex;
-      gap: 16px; // スライド間の余白
-      transition: transform 0.5s ease;
-
-      @include g.mq(md) {}
-    }
-
-    .product-carousel-item {
-      flex: 0 0 calc((100% - 16px * 2) / 3); /* 1枚＋0.5＋0.5 → 3分割 */
-      box-sizing: border-box;
-      scroll-snap-align: center;
-      transition: transform 0.3s ease;
-
-      @include g.mq(md) {
-        flex: 0 0 calc((100% - 16px * 4) / 5); // 5枚表示（gap考慮）
-      }
-
-      .product-carousel-image {
-        width: 100%;
-        height: 58%; // 高さを固定（必要に応じて調整）
-        object-fit: cover; // アスペクト比を維持しながら画像をトリミング
-      }
-    }
-
-    .indicator {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      padding-top: 16px;
-      list-style: none;
-
-      .indicator-list {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: #ccc;
-        cursor: pointer;
-        transition: background-color 0.3s;
-
-        &.active {
-          background-color: #333;
-        }
-      }
-    }
-  }
+.product-carousel-info {
+  text-align: center;
+  margin-top: 8px;
+}
 
   .product-btn-wrapper {
     display: flex;
@@ -70,4 +29,3 @@
     align-items: center;
     padding-top: 16px;
   }
-}

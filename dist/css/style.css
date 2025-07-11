@@ -464,16 +464,19 @@ legend {
 
 .hero-container {
   width: 100%;
+  overflow: hidden;
+  position: relative;
 }
-.hero-container .hero-wrapper {
+.hero-container .hero-slide {
   width: 100%;
+  height: 100%;
 }
-.hero-container .hero-wrapper img.hero-image {
+.hero-container .hero-slide .hero-image {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  display: block;
 }
 
 .news-container {
@@ -628,64 +631,31 @@ legend {
   height: auto;
 }
 
-.product-container {
-  overflow: hidden;
+.product-carousel-wrapper {
+  margin: 0 auto;
+  padding: 20px 0;
+  max-width: 1000px;
 }
-.product-container .product-carousel-wrapper {
+
+.product-carousel-item {
+  padding: 0 10px;
+}
+
+.product-carousel-image {
   width: 100%;
-  position: relative;
-  margin-top: 16px;
-  overflow: hidden;
-  box-sizing: border-box;
-  /* 両端を空けて0.5枚分チラ見せ */
-  padding: 0 calc((100% - 32px) / 3 / 2);
-}
-@media screen and (min-width: 768px) {
-  .product-container .product-carousel-wrapper {
-    padding: 0 calc((100% - 64px) / 5 / 2);
-  }
-}
-.product-container .product-carousel-wrapper .product-carousel-list {
-  display: flex;
-  gap: 16px;
-  transition: transform 0.5s ease;
-}
-.product-container .product-carousel-wrapper .product-carousel-item {
-  flex: 0 0 calc((100% - 32px) / 3); /* 1枚＋0.5＋0.5 → 3分割 */
-  box-sizing: border-box;
-  scroll-snap-align: center;
-  transition: transform 0.3s ease;
-}
-@media screen and (min-width: 768px) {
-  .product-container .product-carousel-wrapper .product-carousel-item {
-    flex: 0 0 calc((100% - 64px) / 5);
-  }
-}
-.product-container .product-carousel-wrapper .product-carousel-item .product-carousel-image {
-  width: 100%;
-  height: 58%;
+  height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
+  display: block;
+  margin: 0 auto;
 }
-.product-container .product-carousel-wrapper .indicator {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  padding-top: 16px;
-  list-style: none;
+
+.product-carousel-info {
+  text-align: center;
+  margin-top: 8px;
 }
-.product-container .product-carousel-wrapper .indicator .indicator-list {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #ccc;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.product-container .product-carousel-wrapper .indicator .indicator-list.active {
-  background-color: #333;
-}
-.product-container .product-btn-wrapper {
+
+.product-btn-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -812,7 +782,7 @@ legend {
 }
 .footer-container .footer-inner {
   color: #FFFFFF;
-  font-size: 8px;
+  font-size: 0.5rem;
   text-align: center;
 }
 @media screen and (min-width: 768px) {

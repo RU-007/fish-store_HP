@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   const carousel = document.querySelector("#carousel");
-  const indicatorWrapper = document.getElementById("indicator");
 
   const lists = [
     { name: 'サーモン', img: 'サーモン.jpeg', price: '1,000' },
@@ -32,9 +31,29 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>`;
     carousel.insertAdjacentHTML('beforeend', content);
-
-    // インジケーターを追加
-    indicatorWrapper.insertAdjacentHTML('beforeend', `<li class="indicator-list"></li>`);
   }
-}
-);
+
+  // Slickの初期化（jQueryで実行）
+  $(function () {
+    $('#carousel').slick({
+      centerMode: true,
+  centerPadding: '80px',     // ← 両端にチラ見せ
+      dots: true,
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      arrows: true,
+      autoplay: true,               // ← 自動再生を有効に
+      autoplaySpeed: 3000,          // ← 自動再生の間隔（ミリ秒）
+      pauseOnHover: false, // ← ホバー時に自動再生を停止しない
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+          }
+        }
+      ]
+    });
+  });
+});
